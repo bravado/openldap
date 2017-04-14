@@ -27,6 +27,8 @@ if [ ! -f /var/lib/ldap/slapd.conf ]; then
 		echo "[INFO] Generated password $OPENLDAP_ROOT_PASSWORD for cn=root,$OPENLDAP_SUFFIX";
 	fi
 
+	OPENLDAP_ROOT_PASSWORD=$(slappasswd -s $OPENLDAP_ROOT_PASSWORD)
+
 	sed -e "s;\$OPENLDAP_DATABASE;$OPENLDAP_DATABASE;g" \
       -e "s;\$OPENLDAP_SUFFIX;$OPENLDAP_SUFFIX;g" \
       -e "s;\$OPENLDAP_ROOT_PASSWORD;$OPENLDAP_ROOT_PASSWORD;g" \
