@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 if [ ! -d /var/lib/ldap/$OPENLDAP_DATABASE ]; then
-  mkdir /var/lib/ldap/$OPENLDAP_DATABASE && chown openldap:openldap /var/lib/ldap/$OPENLDAP_DATABASE
+  mkdir /var/lib/ldap/$OPENLDAP_DATABASE
 fi
+
+chown -R openldap:openldap /var/lib/ldap/$OPENLDAP_DATABASE
 
 if [ ! -f /var/lib/ldap/slapd.conf ]; then
 
